@@ -17,7 +17,7 @@ O LinuPaint é um editor bitmap nativo para Linux que reproduz a usabilidade e o
 1. Paridade funcional com o Paint do Windows XP: todas as ferramentas, menus e caixas de diálogo listados no Escopo.
 2. Paridade de atalhos de teclado e de comportamento do mouse (botão esquerdo = cor primária, direito = secundária; Shift restringe ângulos e proporções).
 3. App nativo, leve e integrado ao desktop Linux (X11 e Wayland, GNOME e KDE).
-4. Distribuição simples: Flatpak no Flathub, AppImage e pacotes .deb/.rpm.
+4. Distribuição simples: AppImage e pacotes .deb/.rpm nas releases. Flatpak/Flathub adiado (manifesto mantido no repositório).
 5. Código aberto sob GPL-3.0 e sem nenhum ativo proprietário da Microsoft.
 
 **Não-objetivos**
