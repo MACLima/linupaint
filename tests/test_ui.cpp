@@ -1,6 +1,7 @@
 // Drives the real widgets (offscreen in CI). Set LINUPAINT_SCREENSHOT_DIR to keep screenshots.
 #include "canvas.h"
 #include "editor.h"
+#include "emoji.h"
 #include "imageio.h"
 #include "mainwindow.h"
 #include "qtbridge.h"
@@ -9,6 +10,7 @@
 #include <QClipboard>
 #include <QDir>
 #include <QElapsedTimer>
+#include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QScrollBar>
 #include <QTemporaryDir>
@@ -276,6 +278,28 @@ private slots:
         QCOMPARE(image().pixel(r.x, r.y), lp::rgb(255, 0, 0));
         QTest::keyClick(window_, Qt::Key_Z, Qt::ControlModifier);
         QCOMPARE(countColor(image(), lp::rgb(255, 0, 0)), 200 * 150);
+    }
+
+    void emojiCatalogIsCompleteAndSearchable()
+    {
+        const EmojiCatalog& catalog = EmojiCatalog::instance();
+        QCOMPARE(catalog.groups().size(), 9);
+        // Entries the installed emoji font cannot draw are hidden; without any emoji font, none are.
+        QVERIFY(catalog.entries().size() > 1300);
+        EmojiDialog dlg(Qt::black);
+        auto* search = dlg.findChild<QLineEdit*>(QStringLiteral("emojiSearch"));
+        QVERIFY(search);
+        search->setText(QStringLiteral("thumbs up"));
+        QCOMPARE(dlg.emoji().left(2), QStringLiteral("👍"));
+        qInfo("emoji catalog: %d entries", int(catalog.entries().size()));
+        const QString dir = qEnvironmentVariable("LINUPAINT_SCREENSHOT_DIR");
+        if (!dir.isEmpty()) {
+            search->clear();
+            dlg.show();
+            QTest::qWait(100);
+            dlg.grab().save(dir + QStringLiteral("/07-emoji-dialog.png"));
+        }
+        QCOMPARE(searchKey(QStringLiteral("Coração")), QStringLiteral("coracao"));
     }
 
     void largeImageStrokeLatency()

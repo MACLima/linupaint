@@ -140,36 +140,12 @@
 <context>
     <name>app::EmojiDialog</name>
     <message>
-        <source>Smileys</source>
-        <translation>Caritas</translation>
-    </message>
-    <message>
-        <source>Gestures</source>
-        <translation>Gestos</translation>
-    </message>
-    <message>
         <source>Symbols</source>
         <translation>Símbolos</translation>
     </message>
     <message>
-        <source>Nature</source>
-        <translation>Naturaleza</translation>
-    </message>
-    <message>
         <source>Objects</source>
         <translation>Objetos</translation>
-    </message>
-    <message>
-        <source>Insert Emoji (Extra)</source>
-        <translation>Insertar emoji (extra)</translation>
-    </message>
-    <message>
-        <source>Extra feature: not part of the classic Paint. The emoji is inserted as a selection that you can move and resize.</source>
-        <translation>Función extra: no forma parte del Paint clásico. El emoji se inserta como una selección que puedes mover y cambiar de tamaño.</translation>
-    </message>
-    <message>
-        <source>Emoji %1</source>
-        <translation>Emoji %1</translation>
     </message>
     <message>
         <source>Type or paste any emoji</source>
@@ -192,8 +168,76 @@
         <translation>Vista previa</translation>
     </message>
     <message>
-        <source>Preview:</source>
-        <translation>Vista previa:</translation>
+        <source>Smileys &amp; Emotion</source>
+        <translation>Caras y emociones</translation>
+    </message>
+    <message>
+        <source>People &amp; Body</source>
+        <translation>Personas y cuerpo</translation>
+    </message>
+    <message>
+        <source>Animals &amp; Nature</source>
+        <translation>Animales y naturaleza</translation>
+    </message>
+    <message>
+        <source>Food &amp; Drink</source>
+        <translation>Comida y bebida</translation>
+    </message>
+    <message>
+        <source>Travel &amp; Places</source>
+        <translation>Viajes y lugares</translation>
+    </message>
+    <message>
+        <source>Activities</source>
+        <translation>Actividades</translation>
+    </message>
+    <message>
+        <source>Flags</source>
+        <translation>Banderas</translation>
+    </message>
+    <message>
+        <source>Insert Emoji</source>
+        <translation>Insertar emoji</translation>
+    </message>
+    <message>
+        <source>Search emojis</source>
+        <translation>Buscar emojis</translation>
+    </message>
+    <message>
+        <source>Skin tone</source>
+        <translation>Tono de piel</translation>
+    </message>
+    <message>
+        <source>Default skin tone</source>
+        <translation>Tono de piel predeterminado</translation>
+    </message>
+    <message>
+        <source>Light skin tone</source>
+        <translation>Tono de piel claro</translation>
+    </message>
+    <message>
+        <source>Medium-light skin tone</source>
+        <translation>Tono de piel claro medio</translation>
+    </message>
+    <message>
+        <source>Medium skin tone</source>
+        <translation>Tono de piel medio</translation>
+    </message>
+    <message>
+        <source>Medium-dark skin tone</source>
+        <translation>Tono de piel oscuro medio</translation>
+    </message>
+    <message>
+        <source>Dark skin tone</source>
+        <translation>Tono de piel oscuro</translation>
+    </message>
+    <message>
+        <source>Recent</source>
+        <translation>Recientes</translation>
+    </message>
+    <message>
+        <source>Emojis</source>
+        <translation>Emojis</translation>
     </message>
 </context>
 <context>
@@ -397,8 +441,8 @@
         <translation>Métodos abreviados de teclado</translation>
     </message>
     <message>
-        <source>Extra: Extras &gt; Insert Emoji adds an emoji as a selection you can move and resize. This is not part of the classic Paint.</source>
-        <translation>Extra: Extras &gt; Insertar emoji agrega un emoji como una selección que puedes mover y cambiar de tamaño. Esto no forma parte del Paint clásico.</translation>
+        <source>Extras &gt; Insert Emoji adds an emoji as a selection you can move and resize.</source>
+        <translation>Extras &gt; Insertar emoji agrega un emoji como una selección que puedes mover y cambiar de tamaño.</translation>
     </message>
 </context>
 <context>
@@ -995,12 +1039,12 @@ Do you want to recover the picture saved at %1?</source>
         <translation>Insertar &amp;emoji...</translation>
     </message>
     <message>
-        <source>Extra feature, not in the classic Paint: inserts an emoji as a selection you can move and resize.</source>
-        <translation>Función extra, no incluida en el Paint clásico: inserta un emoji como una selección que puedes mover y cambiar de tamaño.</translation>
-    </message>
-    <message>
         <source>Ex&amp;tras</source>
         <translation>Ex&amp;tras</translation>
+    </message>
+    <message>
+        <source>Inserts an emoji as a selection you can move and resize.</source>
+        <translation>Inserta un emoji como una selección que puedes mover y cambiar de tamaño.</translation>
     </message>
 </context>
 <context>

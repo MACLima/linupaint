@@ -34,6 +34,15 @@ qt_add_resources(linupaint_ui "icons"
     BASE "${PROJECT_SOURCE_DIR}/resources/icons"
     FILES ${LINUPAINT_ICONS})
 
+qt_add_resources(linupaint_ui "emoji"
+    PREFIX "/emoji"
+    BASE "${PROJECT_SOURCE_DIR}/resources/emoji"
+    FILES
+        "${PROJECT_SOURCE_DIR}/resources/emoji/emoji.tsv"
+        "${PROJECT_SOURCE_DIR}/resources/emoji/names_en.tsv"
+        "${PROJECT_SOURCE_DIR}/resources/emoji/names_pt_BR.tsv"
+        "${PROJECT_SOURCE_DIR}/resources/emoji/names_es.tsv")
+
 qt_add_translations(linupaint_ui
     TS_FILES
         "${PROJECT_SOURCE_DIR}/translations/linupaint_pt_BR.ts"

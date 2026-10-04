@@ -90,11 +90,11 @@ A v1.0 cobre as 16 ferramentas da caixa do Paint XP, a paleta de cores, quatro m
 
 ### Extras (fora da paridade com o Paint)
 
-Recursos que o Paint clássico não tem ficam no menu **Extras**, sempre identificados como extras na interface, para não confundir quem procura a experiência original.
+Recursos que o Paint clássico não tem ficam no menu **Extras**, separados dos menus originais.
 
 | Extra | Comportamento | Versão |
 | --- | --- | --- |
-| Inserir emoji | Extras > Inserir emoji abre um seletor (5 categorias + campo livre) e um tamanho de 16 a 512 px; o emoji entra colorido como seleção flutuante, com bordas suavizadas, que pode ser movida e redimensionada; desfazer em um passo | v1.0 |
+| Inserir emoji | Extras > Inserir emoji abre um seletor com a lista completa do Unicode (Emoji 18.0, 9 grupos, ~1.900 emojis-base), busca por nome e palavra-chave em pt-BR, es e en (CLDR), tom de pele, recentes e campo livre; tamanho de 16 a 512 px. O emoji entra colorido como seleção flutuante com bordas suavizadas, que pode ser movida e redimensionada; desfazer em um passo. Emojis que a fonte instalada não desenha ficam ocultos | v1.0 |
 
 ## UX e fidelidade visual
 

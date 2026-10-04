@@ -157,8 +157,7 @@ void MainWindow::createActions()
     a_.drawOpaque = make(tr("&Draw Opaque"), tr("Makes the current selection either opaque or transparent."));
 
     a_.editColors = make(tr("&Edit Colors..."), tr("Creates a new color."));
-    a_.insertEmoji = make(tr("Insert &Emoji..."), tr("Extra feature, not in the classic Paint: inserts an emoji as a "
-                                                     "selection you can move and resize."));
+    a_.insertEmoji = make(tr("Insert &Emoji..."), tr("Inserts an emoji as a selection you can move and resize."));
     a_.help = make(tr("&Help Topics"), tr("Displays Help for current task or command."), QKeySequence::HelpContents);
     a_.about = make(tr("&About LinuPaint"), tr("Displays program information, version number, and copyright."));
 
