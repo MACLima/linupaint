@@ -122,4 +122,24 @@ void Image::blit(const Image& src, Point at, const Mask* mask, bool useKey, Rgba
     }
 }
 
+void Image::blendOver(const Image& src, Point at)
+{
+    const Rect clip = Rect{at.x, at.y, src.width(), src.height()}.intersected(bounds());
+    for (int y = clip.y; y < clip.bottom(); ++y) {
+        const Rgba* s = src.scanLine(y - at.y);
+        Rgba* d = scanLine(y);
+        for (int x = clip.x; x < clip.right(); ++x) {
+            const Rgba c = s[x - at.x];
+            const int a = alphaOf(c);
+            if (a == 255) {
+                d[x] = c;
+            } else if (a > 0) {
+                const Rgba b = d[x];
+                d[x] = rgb((redOf(c) * a + redOf(b) * (255 - a)) / 255, (greenOf(c) * a + greenOf(b) * (255 - a)) / 255,
+                           (blueOf(c) * a + blueOf(b) * (255 - a)) / 255, alphaOf(b));
+            }
+        }
+    }
+}
+
 } // namespace lp

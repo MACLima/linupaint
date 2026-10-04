@@ -127,3 +127,20 @@ TEST_CASE("resizing and transforming a selection")
     REQUIRE(doc2.image().pixel(1, 3) == kRed);
     REQUIRE(doc2.image().pixel(3, 0) == kWhite);
 }
+
+TEST_CASE("blended paste composites alpha over the picture")
+{
+    Document doc(4, 1);
+    doc.image().fill(kRed);
+    SelectionController sel(doc);
+    Image emoji(2, 1, 0);
+    emoji.setPixel(0, 0, rgb(0, 0, 255, 255));
+    emoji.setPixel(1, 0, rgb(0, 0, 255, 128));
+    sel.paste(emoji, {1, 0}, true);
+    sel.commit();
+    REQUIRE(doc.image().pixel(0, 0) == kRed);
+    REQUIRE(doc.image().pixel(1, 0) == rgb(0, 0, 255));
+    REQUIRE(doc.image().pixel(2, 0) == rgb(127, 0, 128));
+    REQUIRE(doc.image().pixel(3, 0) == kRed);
+    REQUIRE(alphaOf(doc.image().pixel(2, 0)) == 255);
+}

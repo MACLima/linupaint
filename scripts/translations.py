@@ -319,6 +319,31 @@ T = {
     "Outline": ("Contorno", "Contorno"),
     "Outline and fill": ("Contorno e preenchimento", "Contorno y relleno"),
     "Fill without outline": ("Preenchimento sem contorno", "Relleno sin contorno"),
+    # Extras (beyond the classic Paint)
+    "Ex&tras": ("Ex&tras", "Ex&tras"),
+    "Insert &Emoji...": ("Inserir &emoji...", "Insertar &emoji..."),
+    "Extra feature, not in the classic Paint: inserts an emoji as a selection you can move and resize.": (
+        "Recurso extra, fora do Paint clássico: insere um emoji como uma seleção que você pode mover e redimensionar.",
+        "Función extra, no incluida en el Paint clásico: inserta un emoji como una selección que puedes mover y cambiar de tamaño."),
+    "Insert Emoji (Extra)": ("Inserir emoji (extra)", "Insertar emoji (extra)"),
+    "Extra feature: not part of the classic Paint. The emoji is inserted as a selection that you can move and resize.": (
+        "Recurso extra: não faz parte do Paint clássico. O emoji é inserido como uma seleção que você pode mover e redimensionar.",
+        "Función extra: no forma parte del Paint clásico. El emoji se inserta como una selección que puedes mover y cambiar de tamaño."),
+    "Emoji %1": ("Emoji %1", "Emoji %1"),
+    "Type or paste any emoji": ("Digite ou cole qualquer emoji", "Escribe o pega cualquier emoji"),
+    "&Other emoji:": ("&Outro emoji:", "&Otro emoji:"),
+    " px": (" px", " px"),
+    "&Size:": ("&Tamanho:", "&Tamaño:"),
+    "Preview": ("Visualização", "Vista previa"),
+    "Preview:": ("Visualização:", "Vista previa:"),
+    "Smileys": ("Carinhas", "Caritas"),
+    "Gestures": ("Gestos", "Gestos"),
+    "Symbols": ("Símbolos", "Símbolos"),
+    "Nature": ("Natureza", "Naturaleza"),
+    "Objects": ("Objetos", "Objetos"),
+    "Extra: Extras > Insert Emoji adds an emoji as a selection you can move and resize. This is not part of the classic Paint.": (
+        "Extra: Extras > Inserir emoji adiciona um emoji como uma seleção que você pode mover e redimensionar. Isso não faz parte do Paint clássico.",
+        "Extra: Extras > Insertar emoji agrega un emoji como una selección que puedes mover y cambiar de tamaño. Esto no forma parte del Paint clásico."),
     "A classic Paint for Linux.": ("Um Paint clássico para Linux.", "Un Paint clásico para Linux."),
     "Picture to open.": ("Imagem a abrir.", "Imagen para abrir."),
 }

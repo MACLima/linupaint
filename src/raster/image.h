@@ -144,6 +144,9 @@ public:
     void blit(const Image& src, Point at);
     void blit(const Image& src, Point at, const Mask* mask, bool useKey, Rgba key);
 
+    // Alpha-composites `src` over this image (used for pasted pictures with soft edges, e.g. emojis).
+    void blendOver(const Image& src, Point at);
+
     friend bool operator==(const Image&, const Image&) = default;
 
 private:

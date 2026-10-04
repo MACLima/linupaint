@@ -81,6 +81,7 @@ void SelectionController::lift(bool keepOriginal, Rgba background)
     }
     base_ = doc_.image();
     floating_ = true;
+    blend_ = false;
     drawn_ = {};
     render();
 }
@@ -93,7 +94,10 @@ void SelectionController::render()
     const Rect old = drawn_.intersected(img.bounds());
     for (int y = old.y; y < old.bottom(); ++y)
         std::copy_n(base_.scanLine(y) + old.x, old.w, img.scanLine(y) + old.x);
-    img.blit(pixels_, {rect_.x, rect_.y}, mask_.isNull() ? nullptr : &mask_, transparent_, key_);
+    if (blend_)
+        img.blendOver(pixels_, {rect_.x, rect_.y});
+    else
+        img.blit(pixels_, {rect_.x, rect_.y}, mask_.isNull() ? nullptr : &mask_, transparent_, key_);
     drawn_ = rect_;
     doc_.addDirty(old);
     doc_.addDirty(rect_);
@@ -112,7 +116,10 @@ void SelectionController::stamp()
 {
     if (!floating_)
         return;
-    base_.blit(pixels_, {rect_.x, rect_.y}, mask_.isNull() ? nullptr : &mask_, transparent_, key_);
+    if (blend_)
+        base_.blendOver(pixels_, {rect_.x, rect_.y});
+    else
+        base_.blit(pixels_, {rect_.x, rect_.y}, mask_.isNull() ? nullptr : &mask_, transparent_, key_);
     doc_.addDirty(rect_);
 }
 
@@ -162,6 +169,7 @@ void SelectionController::commit()
         floating_ = false;
     }
     active_ = false;
+    blend_ = false;
     mask_ = Mask();
     originalMask_ = Mask();
     outline_.clear();
@@ -207,6 +215,11 @@ Image SelectionController::extract(Rgba background) const
     if (!active_)
         return {};
     Image out = floating_ ? pixels_ : doc_.image().copy(rect_);
+    if (blend_) {
+        Image flat(out.width(), out.height(), background);
+        flat.blendOver(out, {0, 0});
+        out = std::move(flat);
+    }
     if (!mask_.isNull()) {
         for (int y = 0; y < out.height(); ++y)
             for (int x = 0; x < out.width(); ++x)
@@ -216,7 +229,7 @@ Image SelectionController::extract(Rgba background) const
     return out;
 }
 
-void SelectionController::paste(Image img, Point at)
+void SelectionController::paste(Image img, Point at, bool blend)
 {
     commit();
     doc_.beginEdit();
@@ -230,6 +243,7 @@ void SelectionController::paste(Image img, Point at)
     drawn_ = {};
     active_ = true;
     floating_ = true;
+    blend_ = blend;
     render();
 }
 

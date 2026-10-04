@@ -48,8 +48,9 @@ public:
 
     // Selected pixels for the clipboard; pixels outside a free-form outline become `background`.
     Image extract(Rgba background) const;
-    // Paste: a new floating selection at `at`.
-    void paste(Image img, Point at);
+    // Paste: a new floating selection at `at`. With `blend`, the pixels' alpha is composited over
+    // the picture (soft-edged images such as emojis) instead of being copied.
+    void paste(Image img, Point at, bool blend = false);
 
 private:
     void render();
@@ -58,6 +59,7 @@ private:
     bool active_ = false;
     bool floating_ = false;
     bool transparent_ = false;
+    bool blend_ = false;
     Rgba key_ = kWhite;
     Rect rect_;
     Rect drawn_;

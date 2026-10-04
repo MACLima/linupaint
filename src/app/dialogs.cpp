@@ -277,6 +277,8 @@ HelpDialog::HelpDialog(QWidget* parent) : QDialog(parent)
         tr("While drawing a shape, press Esc or the other mouse button to cancel it."),
         tr("Drag the handles at the edges of the picture to change its size."),
         tr("Double-click a color in the color box to edit it."),
+        tr("Extra: Extras > Insert Emoji adds an emoji as a selection you can move and resize. This is not part of "
+           "the classic Paint."),
     };
     QString tipItems;
     for (const QString& t : tips)

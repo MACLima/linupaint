@@ -27,5 +27,7 @@ inline QImage toQImage(const lp::Image& img) { return wrap(img).copy(); }
 
 // Flattens transparency over `background` (Paint images are always opaque).
 lp::Image fromQImage(const QImage& src, lp::Rgba background = lp::kWhite);
+// Keeps per-pixel alpha (for blended floating selections).
+lp::Image fromQImageWithAlpha(const QImage& src);
 
 } // namespace app

@@ -21,6 +21,13 @@ LinuPaint is not affiliated with Microsoft. "Paint" is used only to describe com
 - Autosave every two minutes and recovery after a crash.
 - English, Brazilian Portuguese and Spanish.
 
+### Extras
+
+Features the classic Paint never had live in the **Extras** menu and are labeled as extras:
+
+- **Insert Emoji**: pick an emoji (or type any) and a size; it is inserted in color as a selection
+  you can move and resize.
+
 ## Building
 
 Requirements: CMake 3.21+, a C++20 compiler and Qt 6.4 or newer (Widgets, PrintSupport, Svg,

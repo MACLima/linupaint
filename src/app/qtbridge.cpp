@@ -24,4 +24,13 @@ lp::Image fromQImage(const QImage& src, lp::Rgba background)
     return out;
 }
 
+lp::Image fromQImageWithAlpha(const QImage& src)
+{
+    const QImage q = src.convertToFormat(QImage::Format_ARGB32);
+    lp::Image out(q.width(), q.height(), 0);
+    for (int y = 0; y < q.height(); ++y)
+        std::copy_n(reinterpret_cast<const QRgb*>(q.constScanLine(y)), q.width(), out.scanLine(y));
+    return out;
+}
+
 } // namespace app

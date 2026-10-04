@@ -31,6 +31,8 @@ public:
     ~MainWindow() override;
 
     bool openFile(const QString& path);
+    // Extra (not in the classic Paint): inserts an emoji as a floating selection.
+    void insertEmoji(const QString& emoji, int size);
     // Offers to restore the picture autosaved before a crash.
     void offerRecovery();
 
@@ -120,7 +122,7 @@ private:
         QAction *toolBox, *colorBox, *statusBar, *textToolBar, *zoomNormal, *zoomLarge, *zoomCustom, *grid,
             *thumbnail, *viewBitmap;
         QAction *flipRotate, *stretchSkew, *invert, *attributes, *clearImage, *drawOpaque;
-        QAction *editColors, *help, *about;
+        QAction *editColors, *insertEmoji, *help, *about;
         QAction *bold, *italic, *underline, *smooth;
     } a_{};
     QMenu* editMenu_ = nullptr;

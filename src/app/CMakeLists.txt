@@ -17,6 +17,7 @@ qt_add_library(linupaint_ui STATIC
     platform.h platform.cpp
     views.h views.cpp
     icons.h icons.cpp
+    emoji.h emoji.cpp
     mainwindow.h mainwindow.cpp
 )
 target_include_directories(linupaint_ui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

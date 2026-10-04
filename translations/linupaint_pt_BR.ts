@@ -138,6 +138,65 @@
     </message>
 </context>
 <context>
+    <name>app::EmojiDialog</name>
+    <message>
+        <source>Smileys</source>
+        <translation>Carinhas</translation>
+    </message>
+    <message>
+        <source>Gestures</source>
+        <translation>Gestos</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation>Símbolos</translation>
+    </message>
+    <message>
+        <source>Nature</source>
+        <translation>Natureza</translation>
+    </message>
+    <message>
+        <source>Objects</source>
+        <translation>Objetos</translation>
+    </message>
+    <message>
+        <source>Insert Emoji (Extra)</source>
+        <translation>Inserir emoji (extra)</translation>
+    </message>
+    <message>
+        <source>Extra feature: not part of the classic Paint. The emoji is inserted as a selection that you can move and resize.</source>
+        <translation>Recurso extra: não faz parte do Paint clássico. O emoji é inserido como uma seleção que você pode mover e redimensionar.</translation>
+    </message>
+    <message>
+        <source>Emoji %1</source>
+        <translation>Emoji %1</translation>
+    </message>
+    <message>
+        <source>Type or paste any emoji</source>
+        <translation>Digite ou cole qualquer emoji</translation>
+    </message>
+    <message>
+        <source>&amp;Other emoji:</source>
+        <translation>&amp;Outro emoji:</translation>
+    </message>
+    <message>
+        <source> px</source>
+        <translation> px</translation>
+    </message>
+    <message>
+        <source>&amp;Size:</source>
+        <translation>&amp;Tamanho:</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Visualização</translation>
+    </message>
+    <message>
+        <source>Preview:</source>
+        <translation>Visualização:</translation>
+    </message>
+</context>
+<context>
     <name>app::FlipRotateDialog</name>
     <message>
         <source>Flip and Rotate</source>
@@ -336,6 +395,10 @@
     <message>
         <source>Keyboard shortcuts</source>
         <translation>Atalhos de teclado</translation>
+    </message>
+    <message>
+        <source>Extra: Extras &gt; Insert Emoji adds an emoji as a selection you can move and resize. This is not part of the classic Paint.</source>
+        <translation>Extra: Extras &gt; Inserir emoji adiciona um emoji como uma seleção que você pode mover e redimensionar. Isso não faz parte do Paint clássico.</translation>
     </message>
 </context>
 <context>
@@ -926,6 +989,18 @@ Deseja recuperar a imagem salva em %1?</translation>
     <message>
         <source>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;A classic Paint for Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 Marco Lima and contributors.&lt;/p&gt;&lt;p&gt;This program comes with ABSOLUTELY NO WARRANTY. It is free software: you can redistribute it and/or modify it under the terms of the &lt;a href="https://www.gnu.org/licenses/gpl-3.0.html"&gt;GNU General Public License&lt;/a&gt;, version 3 or later.&lt;/p&gt;&lt;p&gt;LinuPaint is not affiliated with Microsoft.&lt;/p&gt;</source>
         <translation>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;Um Paint clássico para Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 Marco Lima e colaboradores.&lt;/p&gt;&lt;p&gt;Este programa vem SEM NENHUMA GARANTIA. É software livre: você pode redistribuí-lo e/ou modificá-lo nos termos da &lt;a href="https://www.gnu.org/licenses/gpl-3.0.html"&gt;GNU General Public License&lt;/a&gt;, versão 3 ou posterior.&lt;/p&gt;&lt;p&gt;O LinuPaint não tem vínculo com a Microsoft.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>Insert &amp;Emoji...</source>
+        <translation>Inserir &amp;emoji...</translation>
+    </message>
+    <message>
+        <source>Extra feature, not in the classic Paint: inserts an emoji as a selection you can move and resize.</source>
+        <translation>Recurso extra, fora do Paint clássico: insere um emoji como uma seleção que você pode mover e redimensionar.</translation>
+    </message>
+    <message>
+        <source>Ex&amp;tras</source>
+        <translation>Ex&amp;tras</translation>
     </message>
 </context>
 <context>

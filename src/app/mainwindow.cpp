@@ -2,6 +2,7 @@
 
 #include "colorbox.h"
 #include "dialogs.h"
+#include "emoji.h"
 #include "icons.h"
 #include "platform.h"
 #include "qtbridge.h"
@@ -156,6 +157,8 @@ void MainWindow::createActions()
     a_.drawOpaque = make(tr("&Draw Opaque"), tr("Makes the current selection either opaque or transparent."));
 
     a_.editColors = make(tr("&Edit Colors..."), tr("Creates a new color."));
+    a_.insertEmoji = make(tr("Insert &Emoji..."), tr("Extra feature, not in the classic Paint: inserts an emoji as a "
+                                                     "selection you can move and resize."));
     a_.help = make(tr("&Help Topics"), tr("Displays Help for current task or command."), QKeySequence::HelpContents);
     a_.about = make(tr("&About LinuPaint"), tr("Displays program information, version number, and copyright."));
 
@@ -215,6 +218,11 @@ void MainWindow::createActions()
             [this](bool opaque) { editor_->setTransparentSelection(!opaque); });
 
     connect(a_.editColors, &QAction::triggered, this, [this] { colorBox_->editPrimaryColor(); });
+    connect(a_.insertEmoji, &QAction::triggered, this, [this] {
+        EmojiDialog dlg(toQColor(editor_->color(0)), this);
+        if (dlg.exec() == QDialog::Accepted)
+            insertEmoji(dlg.emoji(), dlg.emojiSize());
+    });
     connect(a_.help, &QAction::triggered, this, [this] {
         HelpDialog dlg(this);
         dlg.exec();
@@ -267,6 +275,12 @@ void MainWindow::createMenus()
 
     QMenu* colors = menuBar()->addMenu(tr("&Colors"));
     colors->addAction(a_.editColors);
+
+    // Features beyond the classic Paint live in their own menu so they are clearly extras.
+    QMenu* extras = menuBar()->addMenu(tr("Ex&tras"));
+    extras->setToolTipsVisible(true);
+    a_.insertEmoji->setToolTip(a_.insertEmoji->statusTip());
+    extras->addAction(a_.insertEmoji);
 
     QMenu* help = menuBar()->addMenu(tr("&Help"));
     help->addAction(a_.help);
@@ -771,6 +785,23 @@ void MainWindow::pasteImage(lp::Image img)
     lp::SelectionController& sel = editor_->selection();
     sel.setTransparency(editor_->options().transparentSelection, editor_->color(1));
     sel.paste(std::move(img), toPoint(canvas_->visibleImageOrigin()));
+    editor_->repaint({});
+    updateActions();
+}
+
+void MainWindow::insertEmoji(const QString& emoji, int size)
+{
+    if (emoji.isEmpty())
+        return;
+    settle();
+    editor_->finishPending();
+    lp::Image img = fromQImageWithAlpha(renderEmoji(emoji, size, toQColor(editor_->color(0))));
+    if (!isSelectTool(editor_->toolId()))
+        editor_->setTool(lp::ToolId::RectSelect);
+    // Centered in the visible part of the picture.
+    const QRect view = canvas_->visibleImageRect();
+    const QPoint at = view.isEmpty() ? QPoint(0, 0) : view.center() - QPoint(size / 2, size / 2);
+    editor_->selection().paste(std::move(img), toPoint(at), true);
     editor_->repaint({});
     updateActions();
 }

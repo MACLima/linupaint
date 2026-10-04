@@ -138,6 +138,65 @@
     </message>
 </context>
 <context>
+    <name>app::EmojiDialog</name>
+    <message>
+        <source>Smileys</source>
+        <translation>Caritas</translation>
+    </message>
+    <message>
+        <source>Gestures</source>
+        <translation>Gestos</translation>
+    </message>
+    <message>
+        <source>Symbols</source>
+        <translation>Símbolos</translation>
+    </message>
+    <message>
+        <source>Nature</source>
+        <translation>Naturaleza</translation>
+    </message>
+    <message>
+        <source>Objects</source>
+        <translation>Objetos</translation>
+    </message>
+    <message>
+        <source>Insert Emoji (Extra)</source>
+        <translation>Insertar emoji (extra)</translation>
+    </message>
+    <message>
+        <source>Extra feature: not part of the classic Paint. The emoji is inserted as a selection that you can move and resize.</source>
+        <translation>Función extra: no forma parte del Paint clásico. El emoji se inserta como una selección que puedes mover y cambiar de tamaño.</translation>
+    </message>
+    <message>
+        <source>Emoji %1</source>
+        <translation>Emoji %1</translation>
+    </message>
+    <message>
+        <source>Type or paste any emoji</source>
+        <translation>Escribe o pega cualquier emoji</translation>
+    </message>
+    <message>
+        <source>&amp;Other emoji:</source>
+        <translation>&amp;Otro emoji:</translation>
+    </message>
+    <message>
+        <source> px</source>
+        <translation> px</translation>
+    </message>
+    <message>
+        <source>&amp;Size:</source>
+        <translation>&amp;Tamaño:</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Vista previa</translation>
+    </message>
+    <message>
+        <source>Preview:</source>
+        <translation>Vista previa:</translation>
+    </message>
+</context>
+<context>
     <name>app::FlipRotateDialog</name>
     <message>
         <source>Flip and Rotate</source>
@@ -336,6 +395,10 @@
     <message>
         <source>Keyboard shortcuts</source>
         <translation>Métodos abreviados de teclado</translation>
+    </message>
+    <message>
+        <source>Extra: Extras &gt; Insert Emoji adds an emoji as a selection you can move and resize. This is not part of the classic Paint.</source>
+        <translation>Extra: Extras &gt; Insertar emoji agrega un emoji como una selección que puedes mover y cambiar de tamaño. Esto no forma parte del Paint clásico.</translation>
     </message>
 </context>
 <context>
@@ -926,6 +989,18 @@ Do you want to recover the picture saved at %1?</source>
     <message>
         <source>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;A classic Paint for Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 Marco Lima and contributors.&lt;/p&gt;&lt;p&gt;This program comes with ABSOLUTELY NO WARRANTY. It is free software: you can redistribute it and/or modify it under the terms of the &lt;a href="https://www.gnu.org/licenses/gpl-3.0.html"&gt;GNU General Public License&lt;/a&gt;, version 3 or later.&lt;/p&gt;&lt;p&gt;LinuPaint is not affiliated with Microsoft.&lt;/p&gt;</source>
         <translation>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;Un Paint clásico para Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 Marco Lima y colaboradores.&lt;/p&gt;&lt;p&gt;Este programa se ofrece SIN NINGUNA GARANTÍA. Es software libre: puedes redistribuirlo o modificarlo según los términos de la &lt;a href="https://www.gnu.org/licenses/gpl-3.0.html"&gt;GNU General Public License&lt;/a&gt;, versión 3 o posterior.&lt;/p&gt;&lt;p&gt;LinuPaint no está afiliado a Microsoft.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>Insert &amp;Emoji...</source>
+        <translation>Insertar &amp;emoji...</translation>
+    </message>
+    <message>
+        <source>Extra feature, not in the classic Paint: inserts an emoji as a selection you can move and resize.</source>
+        <translation>Función extra, no incluida en el Paint clásico: inserta un emoji como una selección que puedes mover y cambiar de tamaño.</translation>
+    </message>
+    <message>
+        <source>Ex&amp;tras</source>
+        <translation>Ex&amp;tras</translation>
     </message>
 </context>
 <context>

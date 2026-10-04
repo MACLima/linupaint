@@ -88,6 +88,14 @@ A v1.0 cobre as 16 ferramentas da caixa do Paint XP, a paleta de cores, quatro m
 - Área de transferência de imagem compatível com X11 e Wayland, nos dois sentidos (P0).
 - Aviso de alterações não salvas ao fechar (P0).
 
+### Extras (fora da paridade com o Paint)
+
+Recursos que o Paint clássico não tem ficam no menu **Extras**, sempre identificados como extras na interface, para não confundir quem procura a experiência original.
+
+| Extra | Comportamento | Versão |
+| --- | --- | --- |
+| Inserir emoji | Extras > Inserir emoji abre um seletor (5 categorias + campo livre) e um tamanho de 16 a 512 px; o emoji entra colorido como seleção flutuante, com bordas suavizadas, que pode ser movida e redimensionada; desfazer em um passo | v1.0 |
+
 ## UX e fidelidade visual
 
 A prioridade é a usabilidade idêntica, não o visual retrô. A disposição dos elementos replica o Paint XP para que nada mude de lugar: caixa de ferramentas em 2 colunas à esquerda, painel de opções abaixo dela, caixa de cores no rodapé, barra de status com posição do cursor e tamanho da seleção.

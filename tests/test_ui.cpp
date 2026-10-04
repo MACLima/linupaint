@@ -261,6 +261,23 @@ private slots:
         }
     }
 
+    void insertEmojiExtra()
+    {
+        image().fill(lp::rgb(255, 0, 0));
+        window_->insertEmoji(QStringLiteral("😀"), 64);
+        QVERIFY(editor_->selection().isFloating());
+        QCOMPARE(editor_->toolId(), lp::ToolId::RectSelect);
+        const lp::Rect r = editor_->selection().rect();
+        QCOMPARE(r.w, 64);
+        screenshot(QStringLiteral("06-emoji"));
+        editor_->finishPending();
+        QVERIFY(countColor(image(), lp::rgb(255, 0, 0)) < 200 * 150);
+        // Corners of the emoji square stay transparent: the picture shows through.
+        QCOMPARE(image().pixel(r.x, r.y), lp::rgb(255, 0, 0));
+        QTest::keyClick(window_, Qt::Key_Z, Qt::ControlModifier);
+        QCOMPARE(countColor(image(), lp::rgb(255, 0, 0)), 200 * 150);
+    }
+
     void largeImageStrokeLatency()
     {
         editor_->document().reset(lp::Image(4000, 4000));
