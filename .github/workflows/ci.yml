@@ -1,0 +1,127 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    name: Build, test and package (Ubuntu 24.04, Qt 6.4)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            cmake ninja-build g++ rpm file dpkg-dev \
+            qt6-base-dev qt6-svg-dev qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools \
+            qt6-image-formats-plugins libgl1-mesa-dev
+      - name: Configure
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build
+      - name: Test
+        env:
+          QT_QPA_PLATFORM: offscreen
+          LINUPAINT_SCREENSHOT_DIR: ${{ github.workspace }}/screenshots
+        run: ctest --test-dir build --output-on-failure
+      - name: Validate desktop and AppStream files
+        run: |
+          sudo apt-get install -y --no-install-recommends desktop-file-utils appstream
+          desktop-file-validate packaging/io.github.linupaint.LinuPaint.desktop
+          appstreamcli validate --no-net packaging/io.github.linupaint.LinuPaint.metainfo.xml
+      - name: Packages (.deb and .rpm)
+        run: |
+          cd build
+          cpack -G DEB
+          cpack -G RPM
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-packages
+          path: |
+            build/*.deb
+            build/*.rpm
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: screenshots/
+
+  flatpak:
+    name: Flatpak
+    runs-on: ubuntu-24.04
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.8
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v4
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: LinuPaint.flatpak
+          manifest-path: packaging/flatpak/io.github.linupaint.LinuPaint.yml
+          cache-key: flatpak-builder-${{ github.sha }}
+
+  appimage:
+    name: AppImage
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.8.3'
+          modules: qtimageformats
+          cache: true
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ninja-build libfuse2 libxkbcommon-x11-0 libxcb-cursor0
+      - name: Build AppImage
+        run: packaging/appimage/build-appimage.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: appimage
+          path: LinuPaint-x86_64.AppImage
+
+  fuzz:
+    name: Fuzz (short run)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends cmake ninja-build clang \
+            qt6-base-dev qt6-svg-dev qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools libgl1-mesa-dev
+      - name: Build fuzzers
+        run: |
+          cmake -S . -B build-fuzz -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+            -DCMAKE_CXX_COMPILER=clang++ -DLINUPAINT_BUILD_FUZZERS=ON -DLINUPAINT_BUILD_TESTS=OFF
+          cmake --build build-fuzz --target fuzz_raster fuzz_load_image
+      - name: Run
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          ./build-fuzz/fuzz/fuzz_raster -max_total_time=120
+          ./build-fuzz/fuzz/fuzz_load_image -max_total_time=120 -rss_limit_mb=4096
+
+  release:
+    name: Release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [linux, flatpak, appimage]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/linux-packages/*
+            dist/appimage/*
+            dist/LinuPaint.flatpak-x86_64/*

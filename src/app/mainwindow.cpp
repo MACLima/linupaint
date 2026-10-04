@@ -21,6 +21,7 @@
 #include <QFileInfo>
 #include <QFontComboBox>
 #include <QLabel>
+#include <QLocale>
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QMimeData>
@@ -54,7 +55,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     editor_ = new Editor(this);
     canvas_ = new Canvas(editor_, this);
     setCentralWidget(canvas_);
-    printer_ = std::make_unique<QPrinter>(QPrinter::HighResolution);
 
     createActions();
     createMenus();
@@ -85,7 +85,13 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
     connect(canvas_, &Canvas::cursorMoved, this, [this](const QPoint& p, bool inside) {
         posLabel_->setText(inside ? tr("%1, %2").arg(p.x()).arg(p.y()) : QString());
     });
-    connect(QApplication::clipboard(), &QClipboard::dataChanged, this, &MainWindow::updateActions);
+    // The clipboard is only queried when the Edit menu opens: asking can block for seconds when the
+    // clipboard owner is slow, which must never happen at startup or while drawing.
+    connect(editMenu_, &QMenu::aboutToShow, this, [this] {
+        const QMimeData* mime = QApplication::clipboard()->mimeData();
+        a_.paste->setEnabled(mime && mime->hasImage());
+    });
+    connect(editMenu_, &QMenu::aboutToHide, this, [this] { a_.paste->setEnabled(true); });
 
     readSettings();
     editor_->document().reset(lp::Image(newImageSize_.width(), newImageSize_.height(), lp::kWhite));
@@ -240,6 +246,7 @@ void MainWindow::createMenus()
     file->addAction(a_.exit);
 
     QMenu* edit = menuBar()->addMenu(tr("&Edit"));
+    editMenu_ = edit;
     edit->addActions({a_.undo, a_.redo});
     edit->addSeparator();
     edit->addActions({a_.cut, a_.copy, a_.paste, a_.clearSelection, a_.selectAll});
@@ -437,8 +444,6 @@ void MainWindow::updateActions()
     a_.copy->setEnabled(hasSel);
     a_.clearSelection->setEnabled(hasSel);
     a_.copyTo->setEnabled(hasSel);
-    const QMimeData* mime = QApplication::clipboard()->mimeData();
-    a_.paste->setEnabled(mime && mime->hasImage());
     a_.grid->setEnabled(editor_->zoom() >= 4);
     a_.thumbnail->setEnabled(editor_->zoom() > 1);
     if (editor_->zoom() == 1 && thumbnail_)
@@ -663,26 +668,34 @@ void MainWindow::renderForPrint(QPrinter* printer)
     p.drawImage(QRectF(QPointF(0, 0), target), img);
 }
 
+QPrinter* MainWindow::printer()
+{
+    // Created on first use: querying the system printers can take seconds.
+    if (!printer_)
+        printer_ = std::make_unique<QPrinter>(QPrinter::HighResolution);
+    return printer_.get();
+}
+
 void MainWindow::printPreview()
 {
     settle();
-    QPrintPreviewDialog dlg(printer_.get(), this);
+    QPrintPreviewDialog dlg(printer(), this);
     connect(&dlg, &QPrintPreviewDialog::paintRequested, this, &MainWindow::renderForPrint);
     dlg.exec();
 }
 
 void MainWindow::pageSetup()
 {
-    QPageSetupDialog dlg(printer_.get(), this);
+    QPageSetupDialog dlg(printer(), this);
     dlg.exec();
 }
 
 void MainWindow::print()
 {
     settle();
-    QPrintDialog dlg(printer_.get(), this);
+    QPrintDialog dlg(printer(), this);
     if (dlg.exec() == QDialog::Accepted)
-        renderForPrint(printer_.get());
+        renderForPrint(printer());
 }
 
 void MainWindow::setAsBackground(bool tiled)

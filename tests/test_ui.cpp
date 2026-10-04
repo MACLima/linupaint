@@ -8,6 +8,7 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QDir>
+#include <QElapsedTimer>
 #include <QPlainTextEdit>
 #include <QScrollBar>
 #include <QTemporaryDir>
@@ -258,6 +259,28 @@ private slots:
             if (fmt != SaveFormat::Jpeg && fmt != SaveFormat::Bmp1)
                 QVERIFY(image() == original);
         }
+    }
+
+    void largeImageStrokeLatency()
+    {
+        editor_->document().reset(lp::Image(4000, 4000));
+        editor_->setTool(lp::ToolId::Brush);
+        canvas_->horizontalScrollBar()->setValue(0);
+        canvas_->verticalScrollBar()->setValue(0);
+        sendMouse(viewport_, QEvent::MouseButtonPress, at(10, 10), Qt::LeftButton, Qt::LeftButton);
+        QElapsedTimer timer;
+        timer.start();
+        const int moves = 200;
+        for (int i = 1; i <= moves; ++i) {
+            sendMouse(viewport_, QEvent::MouseMove, at(10 + i * 2, 10 + i), Qt::NoButton, Qt::LeftButton);
+            viewport_->repaint(); // include painting in the measurement
+        }
+        const double perMove = double(timer.nsecsElapsed()) / 1e6 / moves;
+        sendMouse(viewport_, QEvent::MouseButtonRelease, at(10 + moves * 2, 10 + moves), Qt::LeftButton,
+                  Qt::NoButton);
+        qInfo("brush stroke on 4000x4000: %.2f ms per pointer move (PRD target < 16 ms)", perMove);
+        QVERIFY(perMove < 16.0);
+        QCOMPARE(image().pixel(110, 60), lp::kBlack);
     }
 
     void portugueseTranslationLoads()

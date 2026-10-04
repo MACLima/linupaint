@@ -1,0 +1,25 @@
+app-id: io.github.linupaint.LinuPaint
+runtime: org.kde.Platform
+runtime-version: '6.8'
+sdk: org.kde.Sdk
+command: linupaint
+finish-args:
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  # Pictures are opened and saved through the file chooser portal; these keep "Open recent" and
+  # command-line paths working for the usual picture folders.
+  - --filesystem=xdg-pictures
+  - --filesystem=xdg-download
+  - --filesystem=xdg-documents
+  - --filesystem=xdg-desktop
+modules:
+  - name: linupaint
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DLINUPAINT_BUILD_TESTS=OFF
+    sources:
+      - type: dir
+        path: ../..

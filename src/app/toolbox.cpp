@@ -182,8 +182,15 @@ void ToolBox::rebuildOptions()
         for (int i = 0; i < 2; ++i) {
             const bool transparent = i == 1;
             auto draw = [transparent](QPainter& p, const QColor& ink) {
-                if (!transparent)
+                if (transparent) {
+                    // Checkerboard: the background shows through.
+                    for (int y = 0; y < 14; y += 3)
+                        for (int x = 0; x < 22; x += 3)
+                            p.fillRect(QRect(3 + x, 3 + y, 3, 3),
+                                       ((x + y) / 3) % 2 ? QColor(204, 204, 204) : QColor(255, 255, 255));
+                } else {
                     p.fillRect(QRect(3, 3, 22, 14), Qt::white);
+                }
                 p.setPen(ink);
                 p.setBrush(QColor(61, 139, 253));
                 p.drawEllipse(QRect(9, 6, 12, 9));

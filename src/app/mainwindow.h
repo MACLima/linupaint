@@ -61,6 +61,7 @@ private:
     void printPreview();
     void pageSetup();
     void print();
+    QPrinter* printer();
     void renderForPrint(QPrinter* printer);
     void setAsBackground(bool tiled);
 
@@ -122,6 +123,7 @@ private:
         QAction *editColors, *help, *about;
         QAction *bold, *italic, *underline, *smooth;
     } a_{};
+    QMenu* editMenu_ = nullptr;
     QList<QAction*> recentActions_;
     QAction* recentSeparator_ = nullptr;
 };

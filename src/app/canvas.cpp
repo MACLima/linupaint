@@ -645,7 +645,7 @@ void Canvas::commitText()
     textEdit_ = nullptr;
     edit->deleteLater();
     lp::Document& doc = editor_->document();
-    if (!text.isEmpty() || !editor_->options().transparentSelection) {
+    if (!text.isEmpty()) {
         doc.beginEdit();
         lp::Image& img = doc.image();
         QImage target(reinterpret_cast<uchar*>(img.data()), img.width(), img.height(), img.width() * 4,

@@ -1,0 +1,19 @@
+[Desktop Entry]
+Type=Application
+Name=LinuPaint
+GenericName=Paint Program
+GenericName[pt_BR]=Programa de desenho
+GenericName[es]=Programa de dibujo
+Comment=Draw and edit pictures, just like the classic Paint
+Comment[pt_BR]=Desenhe e edite imagens como no Paint clássico
+Comment[es]=Dibuja y modifica imágenes como en el Paint clásico
+Exec=linupaint %f
+Icon=io.github.linupaint.LinuPaint
+Terminal=false
+Categories=Graphics;2DGraphics;RasterGraphics;Qt;
+Keywords=paint;draw;bitmap;image;editor;mspaint;
+Keywords[pt_BR]=paint;desenho;bitmap;imagem;editor;
+Keywords[es]=paint;dibujo;mapa de bits;imagen;editor;
+MimeType=image/bmp;image/png;image/jpeg;image/gif;image/tiff;image/x-ico;image/webp;
+StartupWMClass=linupaint
+SingleMainWindow=false

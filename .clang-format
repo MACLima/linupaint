@@ -1,0 +1,12 @@
+BasedOnStyle: WebKit
+ColumnLimit: 120
+IndentWidth: 4
+PointerAlignment: Left
+NamespaceIndentation: None
+FixNamespaceComments: true
+Cpp11BracedListStyle: true
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: true
+BreakBeforeBinaryOperators: None
+SpaceAfterTemplateKeyword: true

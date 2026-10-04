@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.linupaint.LinuPaint</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>LinuPaint</name>
+  <summary>Draw and edit pictures like the classic Paint</summary>
+  <summary xml:lang="pt-BR">Desenhe e edite imagens como no Paint clássico</summary>
+  <summary xml:lang="es">Dibuja y modifica imágenes como en el Paint clásico</summary>
+  <description>
+    <p>
+      LinuPaint is a lightweight bitmap editor with the tools, menus and shortcuts people know from the
+      classic Paint: pencil, brush, airbrush, fill, text, lines, curves and shapes, free-form and
+      rectangular selections, flip, rotate, stretch and skew.
+    </p>
+    <p xml:lang="pt-BR">
+      O LinuPaint é um editor de bitmaps leve, com as ferramentas, menus e atalhos do Paint clássico:
+      lápis, pincel, spray, balde, texto, linhas, curvas e formas, seleção livre e retangular,
+      inverter, girar, alongar e inclinar.
+    </p>
+    <p xml:lang="es">
+      LinuPaint es un editor de mapas de bits ligero, con las herramientas, menús y atajos del Paint
+      clásico: lápiz, pincel, aerógrafo, relleno, texto, líneas, curvas y formas, selección libre y
+      rectangular, voltear, girar, expandir e inclinar.
+    </p>
+    <p>LinuPaint is not affiliated with Microsoft.</p>
+  </description>
+  <launchable type="desktop-id">io.github.linupaint.LinuPaint.desktop</launchable>
+  <url type="homepage">https://github.com/linupaint/linupaint</url>
+  <url type="bugtracker">https://github.com/linupaint/linupaint/issues</url>
+  <url type="translate">https://hosted.weblate.org/projects/linupaint/</url>
+  <developer id="io.github.linupaint">
+    <name>The LinuPaint contributors</name>
+  </developer>
+  <content_rating type="oars-1.1"/>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+  <provides>
+    <binary>linupaint</binary>
+  </provides>
+  <categories>
+    <category>Graphics</category>
+    <category>RasterGraphics</category>
+  </categories>
+  <releases>
+    <release version="1.0.0" date="2026-10-04">
+      <description>
+        <p>First release: parity with the Paint of Windows XP.</p>
+      </description>
+    </release>
+  </releases>
+</component>
