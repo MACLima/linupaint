@@ -914,10 +914,6 @@ Do you want to continue?</source>
         <translation>Acerca de LinuPaint</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;A classic Paint for Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 the LinuPaint contributors.&lt;br&gt;Licensed under the GNU General Public License, version 3.&lt;/p&gt;&lt;p&gt;LinuPaint is not affiliated with Microsoft.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;Un Paint clásico para Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 los colaboradores de LinuPaint.&lt;br&gt;Con licencia GNU General Public License, versión 3.&lt;/p&gt;&lt;p&gt;LinuPaint no está afiliado a Microsoft.&lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>an unknown time</source>
         <translation>una hora desconocida</translation>
     </message>
@@ -926,6 +922,10 @@ Do you want to continue?</source>
 Do you want to recover the picture saved at %1?</source>
         <translation>LinuPaint no se cerró correctamente.
 ¿Deseas recuperar la imagen guardada el %1?</translation>
+    </message>
+    <message>
+        <source>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;A classic Paint for Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 Marco Lima and contributors.&lt;/p&gt;&lt;p&gt;This program comes with ABSOLUTELY NO WARRANTY. It is free software: you can redistribute it and/or modify it under the terms of the &lt;a href="https://www.gnu.org/licenses/gpl-3.0.html"&gt;GNU General Public License&lt;/a&gt;, version 3 or later.&lt;/p&gt;&lt;p&gt;LinuPaint is not affiliated with Microsoft.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;Un Paint clásico para Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 Marco Lima y colaboradores.&lt;/p&gt;&lt;p&gt;Este programa se ofrece SIN NINGUNA GARANTÍA. Es software libre: puedes redistribuirlo o modificarlo según los términos de la &lt;a href="https://www.gnu.org/licenses/gpl-3.0.html"&gt;GNU General Public License&lt;/a&gt;, versión 3 o posterior.&lt;/p&gt;&lt;p&gt;LinuPaint no está afiliado a Microsoft.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>

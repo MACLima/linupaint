@@ -75,4 +75,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Contributions require agreeing to the
 
 ## License
 
+Copyright © 2026 Marco Lima and contributors.
 GNU General Public License, version 3 or later. See [COPYING](COPYING).

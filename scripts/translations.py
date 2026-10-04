@@ -237,9 +237,9 @@ T = {
         "A conversão para preto e branco é permanente e não pode ser desfeita depois de salvar.\nDeseja continuar?",
         "La conversión a blanco y negro es permanente y no se puede deshacer después de guardar.\n¿Deseas continuar?"),
     "About LinuPaint": ("Sobre o LinuPaint", "Acerca de LinuPaint"),
-    "<h3>LinuPaint %1</h3><p>A classic Paint for Linux.</p><p>Copyright © 2026 the LinuPaint contributors.<br>Licensed under the GNU General Public License, version 3.</p><p>LinuPaint is not affiliated with Microsoft.</p>": (
-        "<h3>LinuPaint %1</h3><p>Um Paint clássico para Linux.</p><p>Copyright © 2026 os colaboradores do LinuPaint.<br>Licenciado sob a GNU General Public License, versão 3.</p><p>O LinuPaint não tem vínculo com a Microsoft.</p>",
-        "<h3>LinuPaint %1</h3><p>Un Paint clásico para Linux.</p><p>Copyright © 2026 los colaboradores de LinuPaint.<br>Con licencia GNU General Public License, versión 3.</p><p>LinuPaint no está afiliado a Microsoft.</p>"),
+    "<h3>LinuPaint %1</h3><p>A classic Paint for Linux.</p><p>Copyright © 2026 Marco Lima and contributors.</p><p>This program comes with ABSOLUTELY NO WARRANTY. It is free software: you can redistribute it and/or modify it under the terms of the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License</a>, version 3 or later.</p><p>LinuPaint is not affiliated with Microsoft.</p>": (
+        "<h3>LinuPaint %1</h3><p>Um Paint clássico para Linux.</p><p>Copyright © 2026 Marco Lima e colaboradores.</p><p>Este programa vem SEM NENHUMA GARANTIA. É software livre: você pode redistribuí-lo e/ou modificá-lo nos termos da <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License</a>, versão 3 ou posterior.</p><p>O LinuPaint não tem vínculo com a Microsoft.</p>",
+        "<h3>LinuPaint %1</h3><p>Un Paint clásico para Linux.</p><p>Copyright © 2026 Marco Lima y colaboradores.</p><p>Este programa se ofrece SIN NINGUNA GARANTÍA. Es software libre: puedes redistribuirlo o modificarlo según los términos de la <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License</a>, versión 3 o posterior.</p><p>LinuPaint no está afiliado a Microsoft.</p>"),
     "an unknown time": ("um horário desconhecido", "una hora desconocida"),
     "LinuPaint was not closed properly.\nDo you want to recover the picture saved at %1?": (
         "O LinuPaint não foi fechado corretamente.\nDeseja recuperar a imagem salva em %1?",

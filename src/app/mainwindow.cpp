@@ -957,8 +957,11 @@ void MainWindow::about()
 {
     QMessageBox::about(this, tr("About LinuPaint"),
                        tr("<h3>LinuPaint %1</h3><p>A classic Paint for Linux.</p>"
-                          "<p>Copyright © 2026 the LinuPaint contributors.<br>"
-                          "Licensed under the GNU General Public License, version 3.</p>"
+                          "<p>Copyright © 2026 Marco Lima and contributors.</p>"
+                          "<p>This program comes with ABSOLUTELY NO WARRANTY. It is free software: you can "
+                          "redistribute it and/or modify it under the terms of the "
+                          "<a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License</a>, "
+                          "version 3 or later.</p>"
                           "<p>LinuPaint is not affiliated with Microsoft.</p>")
                            .arg(QApplication::applicationVersion()));
 }

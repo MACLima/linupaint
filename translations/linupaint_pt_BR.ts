@@ -914,10 +914,6 @@ Deseja continuar?</translation>
         <translation>Sobre o LinuPaint</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;A classic Paint for Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 the LinuPaint contributors.&lt;br&gt;Licensed under the GNU General Public License, version 3.&lt;/p&gt;&lt;p&gt;LinuPaint is not affiliated with Microsoft.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;Um Paint clássico para Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 os colaboradores do LinuPaint.&lt;br&gt;Licenciado sob a GNU General Public License, versão 3.&lt;/p&gt;&lt;p&gt;O LinuPaint não tem vínculo com a Microsoft.&lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>an unknown time</source>
         <translation>um horário desconhecido</translation>
     </message>
@@ -926,6 +922,10 @@ Deseja continuar?</translation>
 Do you want to recover the picture saved at %1?</source>
         <translation>O LinuPaint não foi fechado corretamente.
 Deseja recuperar a imagem salva em %1?</translation>
+    </message>
+    <message>
+        <source>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;A classic Paint for Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 Marco Lima and contributors.&lt;/p&gt;&lt;p&gt;This program comes with ABSOLUTELY NO WARRANTY. It is free software: you can redistribute it and/or modify it under the terms of the &lt;a href="https://www.gnu.org/licenses/gpl-3.0.html"&gt;GNU General Public License&lt;/a&gt;, version 3 or later.&lt;/p&gt;&lt;p&gt;LinuPaint is not affiliated with Microsoft.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;LinuPaint %1&lt;/h3&gt;&lt;p&gt;Um Paint clássico para Linux.&lt;/p&gt;&lt;p&gt;Copyright © 2026 Marco Lima e colaboradores.&lt;/p&gt;&lt;p&gt;Este programa vem SEM NENHUMA GARANTIA. É software livre: você pode redistribuí-lo e/ou modificá-lo nos termos da &lt;a href="https://www.gnu.org/licenses/gpl-3.0.html"&gt;GNU General Public License&lt;/a&gt;, versão 3 ou posterior.&lt;/p&gt;&lt;p&gt;O LinuPaint não tem vínculo com a Microsoft.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
