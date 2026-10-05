@@ -49,7 +49,7 @@ ThumbnailView::ThumbnailView(Editor* editor, Canvas* canvas, QWidget* parent)
 void ThumbnailView::paintEvent(QPaintEvent*)
 {
     QPainter p(this);
-    p.fillRect(rect(), palette().color(QPalette::Dark));
+    p.fillRect(rect(), Canvas::workspaceColor());
     const lp::Image& img = editor_->document().image();
     // Keep the area the canvas shows in the middle of the thumbnail.
     const QRect visible = canvas_->visibleImageRect();

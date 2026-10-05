@@ -23,6 +23,9 @@ struct TextStyle {
 class Canvas : public QAbstractScrollArea {
     Q_OBJECT
 public:
+    // Backdrop around the picture: the classic AppWorkspace gray, never the theme's (often white) base.
+    static QColor workspaceColor() { return QColor(128, 128, 128); }
+
     explicit Canvas(Editor* editor, QWidget* parent = nullptr);
 
     bool showGrid() const { return showGrid_; }

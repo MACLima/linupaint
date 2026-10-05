@@ -233,7 +233,7 @@ void Canvas::paintEvent(QPaintEvent* e)
 {
     QPainter p(viewport());
     const QRect clip = e->rect();
-    p.fillRect(clip, palette().color(QPalette::Dark));
+    p.fillRect(clip, workspaceColor());
 
     const lp::Image& img = editor_->document().image();
     const int z = zoom();

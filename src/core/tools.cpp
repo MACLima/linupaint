@@ -76,6 +76,7 @@ public:
 
 protected:
     virtual Rect draw(ToolHost& h, Point a, Point b, const PointerEvent& e) = 0;
+    bool active() const { return active_; }
 
     int button_ = 0;
 
@@ -117,6 +118,7 @@ protected:
         if (e.shift)
             b = constrainSquare(a, b);
         const Rect r = Rect::fromPoints(a, b);
+        box_ = r;
         h.showSize(r.w, r.h);
         const ShapeStyle s = shapeStyle(h, button_);
         Image& img = h.document().image();
@@ -131,8 +133,18 @@ protected:
         return {};
     }
 
+public:
+    // Dashed guide around the shape being dragged, so a thin or pale outline is still easy to follow.
+    std::optional<Rect> rubberBand() const override
+    {
+        if (active())
+            return box_;
+        return std::nullopt;
+    }
+
 private:
     BoxShape shape_;
+    Rect box_;
 };
 
 // Pencil, brush, eraser and airbrush: segments drawn as the pointer moves.

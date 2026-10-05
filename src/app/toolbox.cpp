@@ -141,8 +141,21 @@ void ToolBox::changeEvent(QEvent* e)
 
 void ToolBox::refreshIcons()
 {
-    for (int i = 0; i < toolButtons_.size(); ++i)
+    // Native auto-raise styles barely mark the checked tool; draw a filled, outlined frame instead.
+    const QColor hl = palette().color(QPalette::Highlight);
+    const auto rgba = [&hl](int alpha) {
+        return QStringLiteral("rgba(%1, %2, %3, %4)").arg(hl.red()).arg(hl.green()).arg(hl.blue()).arg(alpha);
+    };
+    const QString css = QStringLiteral("QToolButton { border: 1px solid transparent; border-radius: 3px; padding: 2px; }"
+                                       "QToolButton:hover { border-color: %1; background: %2; }"
+                                       "QToolButton:checked, QToolButton:pressed { border: 2px solid %3; padding: 1px;"
+                                       " background: %4; }")
+                            .arg(rgba(140), rgba(30), hl.name(), rgba(90));
+    for (int i = 0; i < toolButtons_.size(); ++i) {
         toolButtons_[i]->setIcon(themedIcon(QString::fromLatin1(kIconNames[i]), palette()));
+        if (toolButtons_[i]->styleSheet() != css)
+            toolButtons_[i]->setStyleSheet(css);
+    }
 }
 
 QToolButton* ToolBox::addOption(const QIcon& icon, const QString& name, bool checked, int row, int col,
