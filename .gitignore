@@ -5,3 +5,5 @@ build-*/
 *.user
 /out/
 dist/
+
+.claude/settings.local.json
