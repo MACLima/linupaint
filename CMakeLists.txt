@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.21)
 project(LinuPaint
     VERSION 1.0.0
     DESCRIPTION "Classic Paint for Linux"
-    HOMEPAGE_URL "https://github.com/maclima/linupaint"
+    HOMEPAGE_URL "https://github.com/MACLima/linupaint"
     LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)

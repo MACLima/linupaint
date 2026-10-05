@@ -1,4 +1,4 @@
-# Local and CI builds from this checkout. The Flathub submission uses packaging/flathub/.
+# Manifest submitted to github.com/flathub/flathub. Update tag and commit for each release.
 app-id: io.github.maclima.LinuPaint
 runtime: org.kde.Platform
 runtime-version: '6.11'
@@ -9,7 +9,6 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --device=dri
-  # Printing goes through CUPS; files are opened and saved through the file chooser portal.
   - --socket=cups
 modules:
   - name: linupaint
@@ -18,5 +17,7 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DLINUPAINT_BUILD_TESTS=OFF
     sources:
-      - type: dir
-        path: ../..
+      - type: git
+        url: https://github.com/MACLima/linupaint.git
+        tag: v1.0.0
+        commit: COMMIT_OF_v1.0.0

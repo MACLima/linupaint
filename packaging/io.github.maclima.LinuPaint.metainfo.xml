@@ -4,38 +4,83 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <name>LinuPaint</name>
-  <summary>Draw and edit pictures like the classic Paint</summary>
-  <summary xml:lang="pt-BR">Desenhe e edite imagens como no Paint clássico</summary>
-  <summary xml:lang="es">Dibuja y modifica imágenes como en el Paint clásico</summary>
+  <summary>Draw and edit simple pictures</summary>
+  <summary xml:lang="pt-BR">Desenhe e edite imagens simples</summary>
+  <summary xml:lang="es">Dibuja y modifica imágenes sencillas</summary>
   <description>
     <p>
       LinuPaint is a lightweight bitmap editor with the tools, menus and shortcuts people know from the
-      classic Paint: pencil, brush, airbrush, fill, text, lines, curves and shapes, free-form and
-      rectangular selections, flip, rotate, stretch and skew.
+      classic Paint, so anyone can start drawing right away.
     </p>
     <p xml:lang="pt-BR">
-      O LinuPaint é um editor de bitmaps leve, com as ferramentas, menus e atalhos do Paint clássico:
-      lápis, pincel, spray, balde, texto, linhas, curvas e formas, seleção livre e retangular,
-      inverter, girar, alongar e inclinar.
+      O LinuPaint é um editor de bitmaps leve, com as ferramentas, os menus e os atalhos do Paint clássico,
+      para qualquer pessoa começar a desenhar na hora.
     </p>
     <p xml:lang="es">
-      LinuPaint es un editor de mapas de bits ligero, con las herramientas, menús y atajos del Paint
-      clásico: lápiz, pincel, aerógrafo, relleno, texto, líneas, curvas y formas, selección libre y
-      rectangular, voltear, girar, expandir e inclinar.
+      LinuPaint es un editor de mapas de bits ligero, con las herramientas, los menús y los atajos del Paint
+      clásico, para que cualquiera empiece a dibujar enseguida.
     </p>
+    <ul>
+      <li>Pencil, brush, airbrush, fill, text, lines, curves and shapes</li>
+      <li>Free-form and rectangular selections you can move, copy and resize</li>
+      <li>Flip, rotate, stretch, skew and invert colors</li>
+      <li>Zoom up to 800% with a pixel grid</li>
+      <li>BMP, PNG, JPEG and GIF files, clipboard and printing</li>
+      <li>Emojis from the full Unicode set</li>
+    </ul>
+    <ul xml:lang="pt-BR">
+      <li>Lápis, pincel, spray, balde, texto, linhas, curvas e formas</li>
+      <li>Seleções livres e retangulares para mover, copiar e redimensionar</li>
+      <li>Inverter, girar, alongar, inclinar e inverter cores</li>
+      <li>Zoom de até 800% com grade de pixels</li>
+      <li>Arquivos BMP, PNG, JPEG e GIF, área de transferência e impressão</li>
+      <li>Emojis do conjunto completo do Unicode</li>
+    </ul>
+    <ul xml:lang="es">
+      <li>Lápiz, pincel, aerógrafo, relleno, texto, líneas, curvas y formas</li>
+      <li>Selecciones libres y rectangulares para mover, copiar y cambiar de tamaño</li>
+      <li>Voltear, girar, expandir, inclinar e invertir colores</li>
+      <li>Zoom de hasta 800% con cuadrícula de píxeles</li>
+      <li>Archivos BMP, PNG, JPEG y GIF, Portapapeles e impresión</li>
+      <li>Emojis del conjunto completo de Unicode</li>
+    </ul>
     <p>LinuPaint is not affiliated with Microsoft.</p>
+    <p xml:lang="pt-BR">O LinuPaint não tem vínculo com a Microsoft.</p>
+    <p xml:lang="es">LinuPaint no está afiliado a Microsoft.</p>
   </description>
   <launchable type="desktop-id">io.github.maclima.LinuPaint.desktop</launchable>
-  <url type="homepage">https://github.com/maclima/linupaint</url>
-  <url type="bugtracker">https://github.com/maclima/linupaint/issues</url>
+  <screenshots>
+    <screenshot type="default">
+      <caption>A drawing with a selection</caption>
+      <caption xml:lang="pt-BR">Um desenho com uma seleção</caption>
+      <caption xml:lang="es">Un dibujo con una selección</caption>
+      <image>https://raw.githubusercontent.com/MACLima/linupaint/v1.0.0/packaging/screenshots/main.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Zoom with the pixel grid</caption>
+      <caption xml:lang="pt-BR">Zoom com a grade de pixels</caption>
+      <caption xml:lang="es">Zoom con la cuadrícula de píxeles</caption>
+      <image>https://raw.githubusercontent.com/MACLima/linupaint/v1.0.0/packaging/screenshots/zoom.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://github.com/MACLima/linupaint</url>
+  <url type="bugtracker">https://github.com/MACLima/linupaint/issues</url>
+  <url type="vcs-browser">https://github.com/MACLima/linupaint</url>
   <developer id="io.github.maclima">
     <name>Marco Lima</name>
   </developer>
+  <branding>
+    <color type="primary" scheme_preference="light">#9ec5fe</color>
+    <color type="primary" scheme_preference="dark">#1d3b6e</color>
+  </branding>
   <content_rating type="oars-1.1"/>
   <supports>
     <control>pointing</control>
     <control>keyboard</control>
   </supports>
+  <recommends>
+    <display_length compare="ge">768</display_length>
+  </recommends>
   <provides>
     <binary>linupaint</binary>
   </provides>
@@ -44,9 +89,9 @@
     <category>RasterGraphics</category>
   </categories>
   <releases>
-    <release version="1.0.0" date="2026-10-04">
+    <release version="1.0.0" date="2026-10-05">
       <description>
-        <p>First release: parity with the Paint of Windows XP.</p>
+        <p>First release.</p>
       </description>
     </release>
   </releases>

@@ -5,11 +5,15 @@
 #include "imageio.h"
 #include "mainwindow.h"
 #include "qtbridge.h"
+#include "raster/draw.h"
 
 #include <QApplication>
 #include <QClipboard>
 #include <QDir>
 #include <QElapsedTimer>
+
+#include <cmath>
+#include <random>
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QScrollBar>
@@ -300,6 +304,63 @@ private slots:
             dlg.grab().save(dir + QStringLiteral("/07-emoji-dialog.png"));
         }
         QCOMPARE(searchKey(QStringLiteral("Coração")), QStringLiteral("coracao"));
+    }
+
+    // Store screenshots for the AppStream metainfo (run with LINUPAINT_SCREENSHOT_DIR set).
+    void storeScreenshots()
+    {
+        if (qEnvironmentVariable("LINUPAINT_SCREENSHOT_DIR").isEmpty())
+            QSKIP("screenshots only on demand");
+        window_->resize(960, 680);
+        editor_->document().reset(lp::Image(640, 440));
+        lp::Image& img = image();
+        lp::ShapeStyle s;
+        s.fill = lp::FillStyle::OutlineAndFill;
+        s.lineWidth = 2;
+        img.fillRect({0, 0, 640, 300}, lp::rgb(128, 255, 255));   // sky
+        img.fillRect({0, 300, 640, 140}, lp::rgb(0, 128, 0));     // grass
+        s.outline = lp::rgb(255, 128, 64);
+        s.interior = lp::rgb(255, 255, 0);
+        lp::drawEllipse(img, {500, 30, 90, 90}, s);                // sun
+        for (int i = 0; i < 8; ++i) {
+            const double a = i * 3.14159265 / 4;
+            lp::drawLine(img, {545 + int(60 * std::cos(a)), 75 + int(60 * std::sin(a))},
+                         {545 + int(80 * std::cos(a)), 75 + int(80 * std::sin(a))}, lp::rgb(255, 128, 64), 3);
+        }
+        s.outline = lp::kBlack;
+        s.interior = lp::rgb(255, 255, 128);
+        lp::drawRectangle(img, {140, 190, 200, 150}, s);           // house
+        s.interior = lp::rgb(255, 0, 0);
+        lp::drawPolygon(img, {{120, 190}, {240, 100}, {360, 190}}, s);
+        s.interior = lp::rgb(128, 64, 0);
+        lp::drawRectangle(img, {215, 260, 50, 80}, s);
+        s.interior = lp::rgb(0, 128, 255);
+        lp::drawRectangle(img, {160, 215, 40, 35}, s);
+        lp::drawRectangle(img, {280, 215, 40, 35}, s);
+        s.interior = lp::rgb(128, 64, 0);
+        lp::drawRectangle(img, {440, 230, 24, 110}, s);            // tree
+        s.interior = lp::rgb(0, 255, 0);
+        lp::drawEllipse(img, {395, 140, 115, 110}, s);
+        std::mt19937 rng(7);
+        lp::spray(img, {80, 70}, 40, 260, lp::kWhite, rng);       // cloud
+        lp::spray(img, {115, 60}, 40, 260, lp::kWhite, rng);
+        lp::drawBezier(img, {20, 400}, {120, 330}, {220, 460}, {320, 390}, lp::rgb(255, 255, 0), 3);
+        editor_->document().setModified(false);
+        // No emojis here: the system emoji font's artwork must not end up in the store listing.
+        editor_->setColor(0, lp::rgb(255, 0, 0));
+        editor_->setColor(1, lp::rgb(255, 255, 0));
+        editor_->setTool(lp::ToolId::RectSelect);
+        editor_->selection().select({388, 132, 130, 214}); // the tree, with its resize handles
+        editor_->repaint({});
+        screenshot(QStringLiteral("screenshot-main"));
+
+        editor_->finishPending();
+        editor_->setZoom(8);
+        canvas_->setShowGrid(true);
+        canvas_->horizontalScrollBar()->setValue(150 * 8);
+        canvas_->verticalScrollBar()->setValue(196 * 8);
+        editor_->setTool(lp::ToolId::Pencil);
+        screenshot(QStringLiteral("screenshot-zoom"));
     }
 
     void largeImageStrokeLatency()
