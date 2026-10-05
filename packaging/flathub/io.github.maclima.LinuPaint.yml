@@ -20,4 +20,4 @@ modules:
       - type: git
         url: https://github.com/MACLima/linupaint.git
         tag: v1.0.0
-        commit: COMMIT_OF_v1.0.0
+        commit: 25e6b0982cdc7df0e366732d79811ef59f7d7c2d
