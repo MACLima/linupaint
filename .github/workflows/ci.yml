@@ -34,8 +34,8 @@ jobs:
       - name: Validate desktop and AppStream files
         run: |
           sudo apt-get install -y --no-install-recommends desktop-file-utils appstream
-          desktop-file-validate packaging/io.github.linupaint.LinuPaint.desktop
-          appstreamcli validate --no-net packaging/io.github.linupaint.LinuPaint.metainfo.xml
+          desktop-file-validate packaging/io.github.maclima.LinuPaint.desktop
+          appstreamcli validate --no-net packaging/io.github.maclima.LinuPaint.metainfo.xml
       - name: Packages (.deb and .rpm)
         run: |
           cd build
@@ -64,7 +64,7 @@ jobs:
       - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: LinuPaint.flatpak
-          manifest-path: packaging/flatpak/io.github.linupaint.LinuPaint.yml
+          manifest-path: packaging/flatpak/io.github.maclima.LinuPaint.yml
           cache-key: flatpak-builder-${{ github.sha }}
 
   appimage:

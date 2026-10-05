@@ -1,4 +1,4 @@
-app-id: io.github.linupaint.LinuPaint
+app-id: io.github.maclima.LinuPaint
 runtime: org.kde.Platform
 runtime-version: '6.8'
 sdk: org.kde.Sdk

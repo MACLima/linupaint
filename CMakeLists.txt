@@ -3,14 +3,14 @@ cmake_minimum_required(VERSION 3.21)
 project(LinuPaint
     VERSION 1.0.0
     DESCRIPTION "Classic Paint for Linux"
-    HOMEPAGE_URL "https://github.com/linupaint/linupaint"
+    HOMEPAGE_URL "https://github.com/maclima/linupaint"
     LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(LINUPAINT_APP_ID "io.github.linupaint.LinuPaint")
+set(LINUPAINT_APP_ID "io.github.maclima.LinuPaint")
 
 option(LINUPAINT_BUILD_APP "Build the Qt application" ON)
 option(LINUPAINT_BUILD_TESTS "Build unit tests" ON)
@@ -58,7 +58,7 @@ endif()
 # Native packages: cpack -G DEB / cpack -G RPM
 set(CPACK_PACKAGE_NAME linupaint)
 set(CPACK_PACKAGE_VENDOR "The LinuPaint contributors")
-set(CPACK_PACKAGE_CONTACT "LinuPaint <linupaint@users.noreply.github.com>")
+set(CPACK_PACKAGE_CONTACT "Marco Lima <maclima@users.noreply.github.com>")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Draw and edit pictures like the classic Paint")
 set(CPACK_RESOURCE_FILE_LICENSE ${PROJECT_SOURCE_DIR}/COPYING)
 set(CPACK_PACKAGING_INSTALL_PREFIX /usr)

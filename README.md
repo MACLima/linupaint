@@ -54,7 +54,7 @@ installed through `aqtinstall`.
 | Format | How |
 | --- | --- |
 | .deb / .rpm | `cd build && cpack -G DEB` / `cpack -G RPM` |
-| Flatpak | `flatpak-builder build-dir packaging/flatpak/io.github.linupaint.LinuPaint.yml` |
+| Flatpak | `flatpak-builder build-dir packaging/flatpak/io.github.maclima.LinuPaint.yml` |
 | AppImage | `packaging/appimage/build-appimage.sh` |
 
 The CI workflow (`.github/workflows/ci.yml`) builds and tests on Ubuntu 24.04 (Qt 6.4), produces

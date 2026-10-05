@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.linupaint.LinuPaint</id>
+  <id>io.github.maclima.LinuPaint</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <name>LinuPaint</name>
@@ -25,12 +25,11 @@
     </p>
     <p>LinuPaint is not affiliated with Microsoft.</p>
   </description>
-  <launchable type="desktop-id">io.github.linupaint.LinuPaint.desktop</launchable>
-  <url type="homepage">https://github.com/linupaint/linupaint</url>
-  <url type="bugtracker">https://github.com/linupaint/linupaint/issues</url>
-  <url type="translate">https://hosted.weblate.org/projects/linupaint/</url>
-  <developer id="io.github.linupaint">
-    <name>The LinuPaint contributors</name>
+  <launchable type="desktop-id">io.github.maclima.LinuPaint.desktop</launchable>
+  <url type="homepage">https://github.com/maclima/linupaint</url>
+  <url type="bugtracker">https://github.com/maclima/linupaint/issues</url>
+  <developer id="io.github.maclima">
+    <name>Marco Lima</name>
   </developer>
   <content_rating type="oars-1.1"/>
   <supports>

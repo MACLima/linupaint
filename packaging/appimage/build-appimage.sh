@@ -23,6 +23,6 @@ export EXTRA_QT_PLUGINS="svg;imageformats"
 export OUTPUT=LinuPaint-x86_64.AppImage
 APPIMAGE_EXTRACT_AND_RUN=1 "$TOOLS/linuxdeploy-x86_64.AppImage" \
     --appdir "$BUILD/AppDir" \
-    --desktop-file packaging/io.github.linupaint.LinuPaint.desktop \
-    --icon-file "$BUILD/AppDir/usr/share/icons/hicolor/scalable/apps/io.github.linupaint.LinuPaint.svg" \
+    --desktop-file packaging/io.github.maclima.LinuPaint.desktop \
+    --icon-file "$BUILD/AppDir/usr/share/icons/hicolor/scalable/apps/io.github.maclima.LinuPaint.svg" \
     --plugin qt --output appimage
